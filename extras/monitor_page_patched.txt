@@ -1,0 +1,2504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BSEIndia-Monitoring</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+  <link rel="stylesheet" href="{{url_for('static', filename='css/custom.css') }}" />
+
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+  <script src="{{ url_for('static', filename='js/realtime.js') }}"></script>
+
+  <!-- Bootstrap -->
+  <!-- Bootstrap URL-->
+</head>
+
+<body>
+  <div class="container-fluid d-none d-lg-block">
+    <div class="row align-items-center top-bar">
+      <div class="col-lg-3 col-md-12 text-center text-lg-start">
+        <a href="" class="navbar-brand m-0 p-0">
+          <img src="{{ url_for('static', filename='images/bselogo.png') }}" alt="The Power of Vibrance" title="BSEINDIA"
+            border="0" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="container-fluid">
+    <div class="row">
+      <ul class="nav nav-tabs bg-primary nav-pills nav-fill">
+        <li class="nav-item">
+          <a class="nav-link active" data-bs-toggle="tab" href="#tab1sec">1 Sec</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#tab1min">1 Minute</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#tab5min">5 Minutes</a>
+        </li>
+
+      </ul>
+
+      <div class="tab-content">
+        <div id="tab1sec" class="tab-pane active">
+          <div class="largetable"><br><strong>BSEIndia Website Monitoring </strong>
+            <div class="largetable pt-4 pb-4">
+              <table class="table-bordered table table-striped table-hover resizable-font mb-0">
+                <thead>
+                  <tr>
+                    <th width="6%" height="30" class="text-center">Sr. No.</th>
+                    <th width="19%" height="30" class="text-center">Check List</th>
+                    <th width="46%" class="text-center">URL</th>
+                    <th width="15%" class="text-center">Last Updated Time</th>
+                    <th width="7%" class="text-center">PJT</th>
+                    <th width="7%" class="text-center">HYD</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr id="row-HomePage">
+                    <td height="30" align="center" class="TTRow">1</td>
+                    <td class="TTRow_left">HomePage</td>
+                    <td class="TTRow_left"><a href="https://beta.bseindia.com/">https://beta.bseindia.com/</a></td>
+                    <td class="TTRow_left">&nbsp;</td>
+                    <td class="TTRow_left">&nbsp;</td>
+                    <td class="TTRow_left">&nbsp;</td>
+                  </tr>
+                  <tr id="row-BSE-Sensex-Streamer">
+                    <td height="30" align="center" class="TTRow">2</td>
+                    <td class="TTRow_left">BSE Sensex Streamer</td>
+                    <td class="TTRow_left"><a
+                        href="https://beta.bseindia.com/markets/Equity/equitysensexstream">https://beta.bseindia.com/markets/Equity/equitysensexstream</a>
+                    </td>
+                    <td class="TTRow_left">&nbsp;</td>
+                    <td class="TTRow_left">&nbsp;</td>
+                    <td class="TTRow_left">&nbsp;</td>
+                  </tr>
+                  <tr id="row-BSE-Derivatives-Streamer">
+                    <td height="41" align="center" class="TTRow">3</td>
+                    <td class="TTRow_left">BSE Derivatives Streamer</td>
+                    <td class="TTRow_left"><a
+                        href="https://beta.bseindia.com/markets/derivatives/derivativesensexstream">https://beta.bseindia.com/markets/derivatives/derivativesensexstream</a>
+                    </td>
+                    <td class="TTRow_left">&nbsp;</td>
+                    <td class="TTRow_left">&nbsp;</td>
+                    <td class="TTRow_left">&nbsp;</td>
+                  </tr>
+                  <tr id="row-Special-Pre-open">
+                    <td height="30" align="center" class="TTRow">4</td>
+                    <td class="TTRow_left">Special Pre-open</td>
+                    <td class="TTRow_left"><a
+                        href="https://beta.bseindia.com/eqstreamer/StockTickerSplPreOpen">https://beta.bseindia.com/eqstreamer/StockTickerSplPreOpen</a>
+                    </td>
+                    <td class="TTRow_left">&nbsp;</td>
+                    <td class="TTRow_left">&nbsp;</td>
+                    <td class="TTRow_left">&nbsp;</td>
+                  </tr>
+                  <tr id="row-Market-Watch-1">
+                    <td height="30" align="center" class="TTRow">5</td>
+                    <td class="TTRow_left">Market Watch 1</td>
+                    <td class="TTRow_left"><a
+                        href="https://beta.bseindia.com/eqstreamer/StreamerMarketwatch?flag=1">https://beta.bseindia.com/eqstreamer/StreamerMarketwatch?flag=1</a>
+                    </td>
+                    <td class="TTRow_left">&nbsp;</td>
+                    <td class="TTRow_left">&nbsp;</td>
+                    <td class="TTRow_left">&nbsp;</td>
+                  </tr>
+                  <tr id="row-Market-Watch-2">
+                    <td height="30" align="center" class="TTRow">6</td>
+                    <td class="TTRow_left">Market Watch 2</td>
+                    <td class="TTRow_left"><a
+                        href="https://www.bseindia.com/eqstreamer/StreamerMarketwatch.html?flag=1">https://www.bseindia.com/eqstreamer/StreamerMarketwatch.html?flag=1</a>
+                    </td>
+                    <td class="TTRow_left">&nbsp;</td>
+                    <td class="TTRow_left">&nbsp;</td>
+                    <td class="TTRow_left">&nbsp;</td>
+                  </tr>
+                  <tr id="row-Market-Watch-3">
+                    <td height="30" align="center" class="TTRow">7</td>
+                    <td class="TTRow_left">Market Watch 3</td>
+                    <td class="TTRow_left"><a
+                        href="https://www.bseindia.com/eqstreamer/StreamerMarketwatch.html?flag=1">https://www.bseindia.com/eqstreamer/StreamerMarketwatch.html?flag=1</a>
+                    </td>
+                    <td class="TTRow_left">&nbsp;</td>
+                    <td class="TTRow_left">&nbsp;</td>
+                    <td class="TTRow_left">&nbsp;</td>
+                  </tr>
+                  <tr id="row-Index-Watch">
+                    <td height="30" align="center" class="TTRow">8</td>
+                    <td class="TTRow_left">Index Watch</td>
+                    <td class="TTRow_left"><a
+                        href="https://beta.bseindia.com/sensex/IndexHighlight">https://beta.bseindia.com/sensex/IndexHighlight</a>
+                    </td>
+                    <td class="TTRow_left">&nbsp;</td>
+                    <td class="TTRow_left">&nbsp;</td>
+                    <td class="TTRow_left">&nbsp;</td>
+                  </tr>
+                  <tr id="row-Currency-Watch">
+                    <td height="30" align="center" class="TTRow">9</td>
+                    <td class="TTRow_left">Currency Watch </td>
+                    <td class="TTRow_left"><a
+                        href="https://www.bseindia.com/eqstreamer/StreamerMarketwatch.html?flag=3">https://www.bseindia.com/eqstreamer/StreamerMarketwatch.html?flag=3</a>
+                    </td>
+                    <td class="TTRow_left">&nbsp;</td>
+                    <td class="TTRow_left">&nbsp;</td>
+                    <td class="TTRow_left">&nbsp;</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div id="tab1min" class="container-fluid tab-pane fade">
+
+          <div class="row pt-3">
+
+            <div class="col-lg-3 tab">
+              <button class="tablinks1 table-active active" onclick="openCity1(event, 'London')">Homepage</button>
+              <button class="tablinks1" onclick="openCity1(event, 'Paris')">Equity/ Derivaties/ Index/
+                Corporate Annoucement</button>
+              <button class="tablinks1" onclick="openCity1(event, 'Tokyo')">Currency/ Commodity/ ETF/ IRD/
+                SLB/ Investor Relations</button>
+              <button class="tablinks1" onclick="openCity1(event, 'Debt')">Debt</button>
+              <button class="tablinks1" onclick="openCity1(event, 'PublicIssues')">Public Issues</button>
+            </div>
+
+            <div id="London" class="tabcontent1 col-lg-9">
+              <h3>Homepage</h3>
+              <div class="largetable pt-4 pb-4">
+                <table class="table-bordered table table-striped table-hover resizable-font mb-0">
+                  <thead>
+                    <tr>
+                      <th height="30" class="text-center">Sr. No.</th>
+                      <th height="30" class="text-center">Check List</th>
+                      <th height="30" class="text-center">URL</th>
+                      <th height="30" class="text-center">Last Updated Time</th>
+                      <th width="7%" class="text-center">PJT</th>
+                      <th width="7%" class="text-center">HYD</th>
+                    </tr>
+
+                  </thead>
+                  <tbody>
+                    <tr id="row-Book-Building-Live-BSE-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 1 </td>
+                      <td class="TTRow_left"> Book Building - Live- BSE Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4071&type=IPO&idtype=2&status=H&IPONo=7216&startdt=04%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Book-Building-Live-Cumulative-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 2 </td>
+                      <td class="TTRow_left"> Book Building - Live- Cumulative Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4071&type=IPO&idtype=2&status=H&IPONo=7216&startdt=04%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Book-Building-Live-BSE-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 3 </td>
+                      <td class="TTRow_left">Book Building - Live- BSE Demand Schedule </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4071&type=IPO&idtype=2&status=H&IPONo=7216&startdt=04%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Book-Building-Live-Cumulative-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 4 </td>
+                      <td class="TTRow_left"> Book Building - Live- Cumulative Demand Schedule
+                      </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4071&type=IPO&idtype=2&status=H&IPONo=7216&startdt=04%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Fixed-Income-Live-BSE-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 5 </td>
+                      <td class="TTRow_left">Fixed Income - Live- BSE Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4072&type=FPO&idtype=2&status=H&IPONo=7222&startdt=04%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Fixed-Income-Live-Cumulative-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 6 </td>
+                      <td class="TTRow_left">Fixed Income - Live-Cumulative Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4072&type=FPO&idtype=2&status=H&IPONo=7222&startdt=04%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Fixed-Income-Live-BSE-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 7 </td>
+                      <td class="TTRow_left">Fixed Income - Live- BSE Demand Schedule </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4072&type=FPO&idtype=2&status=H&IPONo=7222&startdt=04%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Fixed-Income-Live-Cumulative-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 8 </td>
+                      <td class="TTRow_left"> Fixed Income - Live- Cumulative Demand Schedule
+                      </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4072&type=FPO&idtype=2&status=H&IPONo=7222&startdt=04%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-OFS-Live-BSE-Bid-Details-Non-Retail-T">
+                      <td height="30" align="center" class="TTRow"> 9 </td>
+                      <td class="TTRow_left"> OFS - Live-BSE Bid Details - Non Retail (T) </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/PublicIssues/ofsDisp?id=532738003&type=OFS&idtype=2&status=H&IPONo=7223&startdt=04%2F08%2F2025&enddt=05%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-OFS-Live-BSE-Bid-Details-Non-Retail-T-1">
+                      <td height="30" align="center" class="TTRow"> 10 </td>
+                      <td class="TTRow_left">OFS - Live- BSE Bid Details -Non Retail (T+1) </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/PublicIssues/ofsDisp?id=532738003&type=OFS&idtype=2&status=H&IPONo=7223&startdt=04%2F08%2F2025&enddt=05%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-OFS-Live-BSE-Bid-Details-Retail-T-1">
+                      <td height="30" align="center" class="TTRow"> 11 </td>
+                      <td class="TTRow_left"> OFS - Live- BSE Bid Details - Retail (T+1) </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/PublicIssues/ofsDisp?id=532738003&type=OFS&idtype=2&status=H&IPONo=7223&startdt=04%2F08%2F2025&enddt=05%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-OTB-Live-BSE-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 12 </td>
+                      <td class="TTRow_left"> "OTB - Live- BSE Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://www.bseindia.com/markets/publicIssues/ACQDisp.aspx?id=544080001&type=OTB&idtype=2&status=H&IPONo=7198&startdt=25/07/2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-OTB-Live-BSE-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 13 </td>
+                      <td class="TTRow_left"> OTB - Live- BSE Demand Schedule </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://www.bseindia.com/markets/publicIssues/ACQDisp.aspx?id=544080001&type=OTB&idtype=2&status=H&IPONo=7198&startdt=25/07/2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Debt-IPO-Live-BSE-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 14 </td>
+                      <td class="TTRow_left">Debt IPO -Live- BSE Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4031&type=DPI&idtype=2&status=H&IPONo=7177&startdt=16/07/2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Debt-IPO-Live-Cumulative-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 15 </td>
+                      <td class="TTRow_left"> Debt IPO -Live- Cumulative Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4031&type=DPI&idtype=2&status=H&IPONo=7177&startdt=16/07/2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Debt-IPO-Live-BSE-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 16 </td>
+                      <td class="TTRow_left">Debt IPO -Live- BSE Demand Schedule </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4031&type=DPI&idtype=2&status=H&IPONo=7177&startdt=16/07/2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Debt-IPO-Live-Cumulative-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 17 </td>
+                      <td class="TTRow_left">Debt IPO -Live- Cumulative Demand Schedule </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4031&type=DPI&idtype=2&status=H&IPONo=7177&startdt=16/07/2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Invits-Live-BSE-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 18 </td>
+                      <td class="TTRow_left">Invits - Live- BSE Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=3780&type=InvITs&idtype=2&status=H&IPONo=6926&startdt=07%2F01%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Invits-Live-Cumulative-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 19 </td>
+                      <td class="TTRow_left"> Invits - Live-Cumulative Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=3780&type=InvITs&idtype=2&status=H&IPONo=6926&startdt=07%2F01%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Invits-Live-BSE-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 20 </td>
+                      <td class="TTRow_left"> Invits - Live- BSE Demand Schedule </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=3780&type=InvITs&idtype=2&status=H&IPONo=6926&startdt=07%2F01%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Invits-Live-Cumulative-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 21 </td>
+                      <td class="TTRow_left"> Invits - Live-- Cumulative Demand Schedule </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=3780&type=InvITs&idtype=2&status=H&IPONo=6926&startdt=07%2F01%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-REITs-Live-BSE-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 22 </td>
+                      <td class="TTRow_left"> REITs Live- BSE Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4074&type=REITS&idtype=2&status=H&IPONo=7218&startdt=05%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-REITs-Live-Cumulative-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 23 </td>
+                      <td class="TTRow_left"> REITs Live-Cumulative Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4074&type=REITS&idtype=2&status=H&IPONo=7218&startdt=05%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-REITs-Live-Cumulative-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 24 </td>
+                      <td class="TTRow_left"> REITs Live-Cumulative Demand Schedule </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4074&type=REITS&idtype=2&status=H&IPONo=7218&startdt=05%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-REITs-Live-BSE-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 25 </td>
+                      <td class="TTRow_left"> REITs Live-- BSE Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4074&type=REITS&idtype=2&status=H&IPONo=7218&startdt=05%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="Paris" class="tabcontent1 col-lg-9" style="display: none !important;">
+              <h3>Equity/ Derivaties/ Index/ Corporate Annoucement</h3>
+              <div class="largetable pt-4 pb-4">
+                <table class="table-bordered table table-striped table-hover resizable-font mb-0">
+                  <thead>
+                    <tr>
+                      <th height="30" class="text-center">Sr. No.</th>
+                      <th height="30" class="text-center">Check List</th>
+                      <th height="30" class="text-center">URL</th>
+                      <th height="30" class="text-center">Last Updated Time</th>
+                      <th width="7%" class="text-center">PJT</th>
+                      <th width="7%" class="text-center">HYD</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="row-BSE-Currency-Derivatives-Streamer">
+                      <td height="30" align="center" class="TTRow">1</td>
+                      <td class="TTRow_left">BSE Currency Derivatives Streamer</td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/currencyDerivatives/CurrencyDerivativeStream.html">https://www.bseindia.com/markets/currencyDerivatives/CurrencyDerivativeStream.html</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+
+                    <tr id="row-BSE-EGR-Streamer">
+                      <td height="30" align="center" class="TTRow">2</td>
+                      <td class="TTRow_left">BSE EGR Streamer</td>
+                      <td class="TTRow_left"> <a
+                          href="https://www.bseindia.com/markets/EGR/Equitysensexstream_EGR.html">https://www.bseindia.com/markets/EGR/Equitysensexstream_EGR.html</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+
+                    <tr id="row-Illiquid-Scrips">
+                      <td height="30" align="center" class="TTRow">6</td>
+                      <td class="TTRow_left">Illiquid Scrips</td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Equity/EQReports/Illiquid_Scrips">https://beta.bseindia.com/markets/Equity/EQReports/Illiquid_Scrips</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Gainers">
+                      <td height="30" align="center" class="TTRow">7</td>
+                      <td class="TTRow_left">Gainers </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/equity/EQReports/mktwatchR?filter=gainer*all$all$">https://beta.bseindia.com/markets/equity/EQReports/mktwatchR?filter=gainer*all$all$</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+
+                    <tr id="row-Losers">
+                      <td height="30" align="center" class="TTRow">8</td>
+                      <td class="TTRow_left">Losers </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/equity/EQReports/mktwatchR?filter=loser*all$all$">https://beta.bseindia.com/markets/equity/EQReports/mktwatchR?filter=loser*all$all$</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Spurt-in-Volume">
+                      <td height="30" align="center" class="TTRow">9</td>
+                      <td class="TTRow_left">Spurt in Volume</td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/equity/EQReports/Missprtvol">https://beta.bseindia.com/markets/equity/EQReports/Missprtvol</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Circuit-Summary">
+                      <td height="30" align="center" class="TTRow">10</td>
+                      <td class="TTRow_left">Circuit Summary </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/equity/EQReports/CFSummary">https://beta.bseindia.com/markets/equity/EQReports/CFSummary</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Circuit-Filter">
+                      <td height="30" align="center" class="TTRow">11</td>
+                      <td class="TTRow_left">Circuit Filter </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/equity/EQReports/CircuitFillter">https://beta.bseindia.com/markets/equity/EQReports/CircuitFillter</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-52-Weeks-High">
+                      <td height="30" align="center" class="TTRow">12</td>
+                      <td class="TTRow_left">52 Weeks High </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/equity/EQReports/HighLow?flag=H">https://beta.bseindia.com/markets/equity/EQReports/HighLow?flag=H</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+
+                    <tr id="row-52-Weeks-Low">
+                      <td height="30" align="center" class="TTRow">13</td>
+                      <td class="TTRow_left">52 Weeks Low </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/equity/EQReports/HighLow?flag=L">https://beta.bseindia.com/markets/equity/EQReports/HighLow?flag=L</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+
+                    <tr id="row-Industry-Watch">
+                      <td height="30" align="center" class="TTRow">14</td>
+                      <td class="TTRow_left">Industry Watch </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/equity/EQReports/industrywatchList">https://beta.bseindia.com/markets/equity/EQReports/industrywatchList</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Industry-Watch-Heat-Map">
+                      <td height="30" align="center" class="TTRow">15</td>
+                      <td class="TTRow_left">Industry Watch- Heat Map </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/Equity/EQReports/industrywatch.aspx?page=IN020101002&scripname=2/3%20Wheelers">https://beta.bseindia.com/markets/Equity/EQReports/industrywatch?page=IN020101002&scripname=2%2F3%20Wheelers</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+
+                    <tr id="row-Trading-Summary">
+                      <td height="30" align="center" class="TTRow">16</td>
+                      <td class="TTRow_left">Trading Summary </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/equity/EQReports/TradeSummary">https://beta.bseindia.com/markets/equity/EQReports/TradeSummary</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+
+                    <tr id="row-Derivatives-Chain">
+                      <td height="30" align="center" class="TTRow">17</td>
+                      <td class="TTRow_left">Derivatives Chain </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Derivatives/DeriReports/DeriOptionchain">https://beta.bseindia.com/markets/Derivatives/DeriReports/DeriOptionchain</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+
+                    <tr id="row-Market-Summary">
+                      <td height="30" align="center" class="TTRow">18</td>
+                      <td class="TTRow_left">Market Summary </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Derivatives/DeriReports/DeriArchive_PG/flag/0">https://beta.bseindia.com/markets/Derivatives/DeriReports/DeriArchive_PG/flag/0</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Index-Watch-1min">
+                      <td height="30" align="center" class="TTRow">19</td>
+                      <td class="TTRow_left">Index Watch </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/sensex/IndexHighlight">https://beta.bseindia.com/sensex/IndexHighlight</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Corporate-Announcements">
+                      <td height="30" align="center" class="TTRow">20</td>
+                      <td class="TTRow_left">Corporate Announcements</td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/corporates/ann.html">https://www.bseindia.com/corporates/ann.html</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Corporate-Announcements">
+                      <td height="30" align="center" class="TTRow">21</td>
+                      <td class="TTRow_left">Corporate Announcements</td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/corporates/ann.html">https://www.bseindia.com/corporates/ann.html</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+
+
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="Tokyo" class="tabcontent1 col-lg-9" style="display: none !important;">
+              <h3>Currency/ Commodity/ ETF/ IRD/ SLB/ Investor Relations</h3>
+              <div class="largetable pt-4 pb-4">
+                <table class="table-bordered table table-striped table-hover resizable-font mb-0">
+                  <thead>
+                    <tr>
+                      <th height="30" class="text-center">Sr. No.</th>
+                      <th height="30" class="text-center">Check List</th>
+                      <th height="30" class="text-center">URL</th>
+                      <th height="30" class="text-center">Last Updated Time</th>
+                      <th width="7%" class="text-center">PJT</th>
+                      <th width="7%" class="text-center">HYD</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="row-Spread-Contracts">
+                      <td height="30" align="center" class="TTRow"> 1 </td>
+                      <td class="TTRow_left"> Spread Contracts </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currency-derivatives/spread-contracts">
+                          https://beta.bseindia.com/markets/currency-derivatives/spread-contracts
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                    <tr id="row-Strategy-Contracts">
+                      <td height="30" align="center" class="TTRow"> 2 </td>
+                      <td class="TTRow_left"> Strategy Contracts </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/Strategy_contractsl">
+                          https://beta.bseindia.com/markets/currencyDerivatives/Strategy_contracts</a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                    <tr id="row-Option-Chain">
+                      <td height="30" align="center" class="TTRow"> 3 </td>
+                      <td class="TTRow_left"> Option Chain </td>
+                      <td class="TTRow_left"><a
+                          href="http://beta.bseindia.com/markets/currencyDerivatives/Currency_Option_Chain">
+                          http://beta.bseindia.com/markets/currencyDerivatives/Currency_Option_Chain</a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                    <tr id="row-Most-Active-Contracts">
+                      <td height="30" align="center" class="TTRow"> 4 </td>
+                      <td class="TTRow_left"> Most Active Contracts </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/most_active/flagseries%3D&flagcall%3D&flagstrgid%3D&FlagDrop%3D">
+                          https://beta.bseindia.com/markets/currencyDerivatives/most_active/flagseries%3D&flagcall%3D&flagstrgid%3D&FlagDrop%3D</a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                    <tr id="row-Market-Summary">
+                      <td height="30" align="center" class="TTRow"> 5 </td>
+                      <td class="TTRow_left"> Market Summary </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/market_summary?expandable=0">
+                          https://beta.bseindia.com/markets/currencyDerivatives/market_summary?expandable=0</a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                    <tr id="row-Interest-Rate-Derivatives-Watch">
+                      <td height="30" align="center" class="TTRow"> 6 </td>
+                      <td class="TTRow_left"> Interest Rate Derivatives Watch </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/currencyDerivatives/IRD_Watch">
+                          https://beta.bseindia.com/markets/currencyDerivatives/IRD_Watch </a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Spread-Contracts">
+                      <td height="30" align="center" class="TTRow"> 7 </td>
+                      <td class="TTRow_left"> Spread Contracts </td>
+                      <td class="TTRow_left"><a href="https://www.bseindia.com/index.html">
+                          https://beta.bseindia.com/markets/currency-derivatives/Ird_spread_contracts
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                    <tr id="row-Option-Chain">
+                      <td height="30" align="center" class="TTRow"> 8 </td>
+                      <td class="TTRow_left"> Option Chain </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currency-derivatives/Ird_spread_contracts">
+                          https://beta.bseindia.com/markets/currencyDerivatives/IRD_Option_Chain
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                    <tr id="row-Market-Summary">
+                      <td height="30" align="center" class="TTRow"> 9 </td>
+                      <td class="TTRow_left"> Market Summary </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/Ird_market_summery">
+                          https://beta.bseindia.com/markets/currencyDerivatives/Ird_market_summery
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                    <tr id="row-Daily-FII-FPI-Long-Gross-Positions">
+                      <td height="30" align="center" class="TTRow"> 10 </td>
+                      <td class="TTRow_left"> Daily FII / FPI Long Gross Positions </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/FII_Long_Positions">
+                          https://beta.bseindia.com/markets/currencyDerivatives/FII_Long_Positions
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                    <tr id="row-SLB-Marketwatch">
+                      <td height="30" align="center" class="TTRow"> 11 </td>
+                      <td class="TTRow_left"> SLB Marketwatch </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/bse_slb/active-scrips">
+                          https://beta.bseindia.com/bse_slb/active-scrips </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                    <tr id="row-ETF-Market-Watch">
+                      <td height="30" align="center" class="TTRow"> 12 </td>
+                      <td class="TTRow_left"> ETF Market Watch </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/etf/ETF_MktWatchl">
+                          https://beta.bseindia.com/markets/etf/ETF_MktWatch </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                    <tr id="row-ETF-Market-Summary">
+                      <td height="30" align="center" class="TTRow"> 13 </td>
+                      <td class="TTRow_left"> ETF Market Summary </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/etf/ETF_Summary">
+                          https://beta.bseindia.com/markets/etf/ETF_Summary </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                    <tr id="row-Commodity-Home">
+                      <td height="30" align="center" class="TTRow"> 14 </td>
+                      <td class="TTRow_left"> Commodity Home </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/commodity/commodity">
+                          https://beta.bseindia.com/markets/commodity/commodity </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                    <tr id="row-Gainers">
+                      <td height="30" align="center" class="TTRow"> 15 </td>
+                      <td class="TTRow_left"> Gainers </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/commodity/GainersLosers?filter=Gainers">
+                          https://beta.bseindia.com/markets/commodity/GainersLosers?filter=Gainers
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                    <tr id="row-Losers">
+                      <td height="30" align="center" class="TTRow"> 16 </td>
+                      <td class="TTRow_left"> Losers </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/commodity/GainersLosers?filter=losers">
+                          https://beta.bseindia.com/markets/commodity/GainersLosers?filter=losers
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                    <tr id="row-Option-Chain">
+                      <td height="30" align="center" class="TTRow"> 17 </td>
+                      <td class="TTRow_left"> Option Chain </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Commodity/Commodity_Option_Chain">
+                          https://beta.bseindia.com/markets/Commodity/Commodity_Option_Chain
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                    <tr id="row-Most-Active-Contracts">
+                      <td height="30" align="center" class="TTRow"> 18 </td>
+                      <td class="TTRow_left"> Most Active Contracts </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/commodity/most_active/en-us">
+                          https://beta.bseindia.com/markets/commodity/most_active/en-us </a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                    <tr id="row-Summary-of-Delivery-Intention">
+                      <td height="30" align="center" class="TTRow"> 19 </td>
+                      <td class="TTRow_left"> Summary of Delivery Intention </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/commodity/DeliveryIntention">
+                          https://beta.bseindia.com/markets/commodity/DeliveryIntention</a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                    <tr id="row-Investor-Relations">
+                      <td height="30" align="center" class="TTRow"> 20 </td>
+                      <td class="TTRow_left"> Investor Relations </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/investor-relation">
+                          https://beta.bseindia.com/investor-relation </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="Debt" class="tabcontent1 col-lg-9" style="display: none !important;">
+              <h3>Debt</h3>
+              <div class="largetable pt-4 pb-4">
+                <table class="table-bordered table table-striped table-hover resizable-font mb-0">
+                  <thead>
+                    <tr>
+                      <th height="30" class="text-center">Sr. No.</th>
+                      <th height="30" class="text-center">Check List</th>
+                      <th height="30" class="text-center">URL</th>
+                      <th height="30" class="text-center">Last Updated Time</th>
+                      <th width="7%" class="text-center">PJT</th>
+                      <th width="7%" class="text-center">HYD</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="row-Corporate-Bond-Reported-on-NDS-RST">
+                      <td height="30" align="center" class="TTRow"> 1 </td>
+                      <td class="TTRow_left"> Corporate Bond Reported on NDS-RST </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/debt/tradereport">
+                          https://beta.bseindia.com/markets/debt/tradereport </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Corporate-Bond-OTC-Trades">
+                      <td height="30" align="center" class="TTRow"> 2 </td>
+                      <td class="TTRow_left"> Corporate Bond – OTC Trades </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/debt/corporate-bonds/flag/1">
+                          https://beta.bseindia.com/markets/debt/corporate-bonds/flag/1 </a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-BUY-BACK-IN-CORPORATE-BONDS">
+                      <td height="30" align="center" class="TTRow"> 3 </td>
+                      <td class="TTRow_left"> BUY-BACK IN CORPORATE BONDS </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/debt/BuyBackinCorporatesBond">
+                          https://beta.bseindia.com/markets/debt/BuyBackinCorporatesBond </a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-RFQ-Market-Watch">
+                      <td height="30" align="center" class="TTRow"> 4 </td>
+                      <td class="TTRow_left"> RFQ Market Watch </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/debt/RFQ_MarketWatch">
+                          https://beta.bseindia.com/markets/debt/RFQ_MarketWatch </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-RFQ-Trades-in-Corporate-Bonds">
+                      <td height="30" align="center" class="TTRow"> 5 </td>
+                      <td class="TTRow_left"> RFQ Trades in Corporate Bonds </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/debt/CorporateBondsRFQ?Flag=0">
+                          https://beta.bseindia.com/markets/debt/CorporateBondsRFQ?Flag=0 </a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-RFQ-Trades-in-CP-CDs">
+                      <td height="30" align="center" class="TTRow"> 6 </td>
+                      <td class="TTRow_left"> RFQ Trades in CP/CDs </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/debt/CorporateBondsRFQ?Flag=1">
+                          https://beta.bseindia.com/markets/debt/CorporateBondsRFQ?Flag=1 </a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-RFQ-Trades-in-G-sec-SDL-T-Bills">
+                      <td height="30" align="center" class="TTRow"> 7 </td>
+                      <td class="TTRow_left"> RFQ Trades in G-sec/SDL/T-Bills </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/debt/CorporateBondsRFQ?Flag=2">
+                          https://beta.bseindia.com/markets/debt/CorporateBondsRFQ?Flag=2 </a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-G-sec-Reported-on-NDS-RST-Platform">
+                      <td height="30" align="center" class="TTRow"> 8 </td>
+                      <td class="TTRow_left"> G-sec Reported on NDS-RST Platform </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/debt/debt_wholesale">
+                          https://beta.bseindia.com/markets/debt/debt_wholesale </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Corporate-Bond-Settlement-Data">
+                      <td height="30" align="center" class="TTRow"> 9 </td>
+                      <td class="TTRow_left"> Corporate Bond Settlement Data </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/debt/settlement_Data">
+                          https://beta.bseindia.com/markets/debt/settlement_Data</a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Retail-Trading-in-Corporate-Debt">
+                      <td height="30" align="center" class="TTRow"> 10 </td>
+                      <td class="TTRow_left"> Retail Trading in Corporate Debt </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/debt/debt_corporate_EOD/:curPage/:expandable">
+                          https://beta.bseindia.com/markets/debt/debt_corporate_EOD/:curPage/:expandable</a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Retail-Debt-Segment-in-Government-Bonds">
+                      <td height="30" align="center" class="TTRow"> 11 </td>
+                      <td class="TTRow_left"> Retail Debt Segment in Government Bonds </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/debt/debt-retail">
+                          https://beta.bseindia.com/markets/debt/debt-retail</a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Trade-Settlement-Data-on-Corporate-Bonds">
+                      <td height="30" align="center" class="TTRow"> 12 </td>
+                      <td class="TTRow_left"> Trade & Settlement Data on Corporate Bonds </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/debt/TradenSettlement">
+                          https://beta.bseindia.com/markets/debt/TradenSettlement </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Broker-Trade-Reporting-Corporate-Bonds">
+                      <td height="30" align="center" class="TTRow"> 13 </td>
+                      <td class="TTRow_left"> Broker Trade Reporting – Corporate Bonds </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/debt/corporate-bonds/flag/3">
+                          https://beta.bseindia.com/markets/debt/corporate-bonds/flag/3</a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="PublicIssues" class="tabcontent1 col-lg-9" style="display: none !important;">
+              <h3>Public Issues</h3>
+              <div class="largetable pt-4 pb-4">
+                <table class="table-bordered table table-striped table-hover resizable-font mb-0">
+                  <thead>
+                    <tr>
+                      <th height="30" class="text-center">Sr. No.</th>
+                      <th height="30" class="text-center">Check List</th>
+                      <th height="30" class="text-center" width="7%">URL</th>
+                      <th height="30" class="text-center">Last Updated Time</th>
+                      <th class="text-center">PJT</th>
+                      <th class="text-center">HYD</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="row-Book-Building-Live-BSE-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 1 </td>
+                      <td class="TTRow_left"> Book Building - Live- BSE Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4071&type=IPO&idtype=2&status=H&IPONo=7216&startdt=04%2F08%2F2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4071&type=IPO&idtype=2&status=H&IPONo=7216&startdt=04%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Book-Building-Live-Cumulative-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 2 </td>
+                      <td class="TTRow_left"> Book Building - Live- Cumulative Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4071&type=IPO&idtype=2&status=H&IPONo=7216&startdt=04%2F08%2F2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4071&type=IPO&idtype=2&status=H&IPONo=7216&startdt=04%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Book-Building-Live-BSE-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 3 </td>
+                      <td class="TTRow_left"> "Book Building - Live- BSE Demand Schedule </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4071&type=IPO&idtype=2&status=H&IPONo=7216&startdt=04%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Book-Building-Live-Cumulative-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 4 </td>
+                      <td class="TTRow_left"> Book Building - Live- Cumulative Demand Schedule
+                      </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4071&type=IPO&idtype=2&status=H&IPONo=7216&startdt=04%2F08%2F2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4071&type=IPO&idtype=2&status=H&IPONo=7216&startdt=04%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Fixed-Income-Live-BSE-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 5 </td>
+                      <td class="TTRow_left"> Fixed Income - Live- BSE Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4072&type=FPO&idtype=2&status=H&IPONo=7222&startdt=04%2F08%2F2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4072&type=FPO&idtype=2&status=H&IPONo=7222&startdt=04%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Fixed-Income-Live-Cumulative-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 6 </td>
+                      <td class="TTRow_left"> Fixed Income - Live-Cumulative Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4072&type=FPO&idtype=2&status=H&IPONo=7222&startdt=04%2F08%2F2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4072&type=FPO&idtype=2&status=H&IPONo=7222&startdt=04%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Fixed-Income-Live-BSE-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 7 </td>
+                      <td class="TTRow_left"> "Fixed Income - Live- BSE Demand Schedule </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4072&type=FPO&idtype=2&status=H&IPONo=7222&startdt=04%2F08%2F2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4072&type=FPO&idtype=2&status=H&IPONo=7222&startdt=04%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Fixed-Income-Live-Cumulative-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 8 </td>
+                      <td class="TTRow_left"> Fixed Income - Live- Cumulative Demand Schedule
+                      </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4072&type=FPO&idtype=2&status=H&IPONo=7222&startdt=04%2F08%2F2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4072&type=FPO&idtype=2&status=H&IPONo=7222&startdt=04%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-OFS-Live-BSE-Bid-Details-Non-Retail-T">
+                      <td height="30" align="center" class="TTRow"> 9 </td>
+                      <td class="TTRow_left"> OFS - Live-BSE Bid Details - Non Retail (T) </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/PublicIssues/ofsDisp?id=532738003&type=OFS&idtype=2&status=H&IPONo=7223&startdt=04%2F08%2F2025&enddt=05%2F08%2F2025">
+                          https://beta.bseindia.com/markets/PublicIssues/ofsDisp?id=532738003&type=OFS&idtype=2&status=H&IPONo=7223&startdt=04%2F08%2F2025&enddt=05%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-OFS-Live-BSE-Bid-Details-Non-Retail-T-1">
+                      <td height="30" align="center" class="TTRow"> 10 </td>
+                      <td class="TTRow_left"> "OFS - Live- BSE Bid Details -Non Retail (T+1) </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/PublicIssues/ofsDisp?id=532738003&type=OFS&idtype=2&status=H&IPONo=7223&startdt=04%2F08%2F2025&enddt=05%2F08%2F2025">
+                          https://beta.bseindia.com/markets/PublicIssues/ofsDisp?id=532738003&type=OFS&idtype=2&status=H&IPONo=7223&startdt=04%2F08%2F2025&enddt=05%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-OFS-Live-BSE-Bid-Details-Retail-T-1">
+                      <td height="30" align="center" class="TTRow"> 11 </td>
+                      <td class="TTRow_left"> OFS - Live- BSE Bid Details - Retail (T+1) </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/PublicIssues/ofsDisp?id=532738003&type=OFS&idtype=2&status=H&IPONo=7223&startdt=04%2F08%2F2025&enddt=05%2F08%2F2025">
+                          https://beta.bseindia.com/markets/PublicIssues/ofsDisp?id=532738003&type=OFS&idtype=2&status=H&IPONo=7223&startdt=04%2F08%2F2025&enddt=05%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-OTB-Live-BSE-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 12 </td>
+                      <td class="TTRow_left"> "OTB - Live- BSE Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/DisplayIPO.aspx?id=4071&type=IPO&idtype=1&status=L&IPONo=7216&startdt=04/Aug/2025">
+                          https://www.bseindia.com/markets/publicIssues/ACQDisp.aspx?id=544080001&type=OTB&idtype=2&status=H&IPONo=7198&startdt=25/07/2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-OTB-Live-BSE-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 13 </td>
+                      <td class="TTRow_left"> OTB - Live- BSE Demand Schedule </td>
+                      <td class="TTRow_left"><a
+                          href="https://www.bseindia.com/markets/publicIssues/ACQDisp.aspx?id=544080001&type=OTB&idtype=2&status=H&IPONo=7198&startdt=25/07/2025">
+                          https://www.bseindia.com/markets/publicIssues/ACQDisp.aspx?id=544080001&type=OTB&idtype=2&status=H&IPONo=7198&startdt=25/07/2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Debt-IPO-Live-BSE-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 14 </td>
+                      <td class="TTRow_left"> "Debt IPO -Live- BSE Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4031&type=DPI&idtype=2&status=H&IPONo=7177&startdt=16/07/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4031&type=DPI&idtype=2&status=H&IPONo=7177&startdt=16/07/2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Debt-IPO-Live-Cumulative-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 15 </td>
+                      <td class="TTRow_left"> Debt IPO -Live- Cumulative Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4031&type=DPI&idtype=2&status=H&IPONo=7177&startdt=16/07/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4031&type=DPI&idtype=2&status=H&IPONo=7177&startdt=16/07/2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Debt-IPO-Live-BSE-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 16 </td>
+                      <td class="TTRow_left"> "Debt IPO -Live- BSE Demand Schedule </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4031&type=DPI&idtype=2&status=H&IPONo=7177&startdt=16/07/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4031&type=DPI&idtype=2&status=H&IPONo=7177&startdt=16/07/2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Debt-IPO-Live-Cumulative-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 17 </td>
+                      <td class="TTRow_left"> Debt IPO -Live- Cumulative Demand Schedule </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4031&type=DPI&idtype=2&status=H&IPONo=7177&startdt=16/07/2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4031&type=DPI&idtype=2&status=H&IPONo=7177&startdt=16/07/2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Invits-Live-BSE-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 18 </td>
+                      <td class="TTRow_left"> "Invits - Live- BSE Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=3780&type=InvITs&idtype=2&status=H&IPONo=6926&startdt=07%2F01%2F2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=3780&type=InvITs&idtype=2&status=H&IPONo=6926&startdt=07%2F01%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Invits-Live-Cumulative-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 19 </td>
+                      <td class="TTRow_left"> Invits - Live-Cumulative Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=3780&type=InvITs&idtype=2&status=H&IPONo=6926&startdt=07%2F01%2F2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=3780&type=InvITs&idtype=2&status=H&IPONo=6926&startdt=07%2F01%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Invits-Live-BSE-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 20 </td>
+                      <td class="TTRow_left"> Invits - Live- BSE Demand Schedule </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=3780&type=InvITs&idtype=2&status=H&IPONo=6926&startdt=07%2F01%2F2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=3780&type=InvITs&idtype=2&status=H&IPONo=6926&startdt=07%2F01%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Invits-Live-Cumulative-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 21 </td>
+                      <td class="TTRow_left"> Invits - Live-- Cumulative Demand Schedule </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=3780&type=InvITs&idtype=2&status=H&IPONo=6926&startdt=07%2F01%2F2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=3780&type=InvITs&idtype=2&status=H&IPONo=6926&startdt=07%2F01%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-REITs-Live-BSE-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 22 </td>
+                      <td class="TTRow_left"> REITs Live- BSE Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4074&type=REITS&idtype=2&status=H&IPONo=7218&startdt=05%2F08%2F2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4074&type=REITS&idtype=2&status=H&IPONo=7218&startdt=05%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-REITs-Live-Cumulative-Bid-Details">
+
+
+                      <td height="30" align="center" class="TTRow"> 23 </td>
+                      <td class="TTRow_left"> REITs Live-Cumulative Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4074&type=REITS&idtype=2&status=H&IPONo=7218&startdt=05%2F08%2F2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4074&type=REITS&idtype=2&status=H&IPONo=7218&startdt=05%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-REITs-Live-Cumulative-Demand-Schedule">
+                      <td height="30" align="center" class="TTRow"> 24 </td>
+                      <td class="TTRow_left"> REITs Live-Cumulative Demand Schedule </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4074&type=REITS&idtype=2&status=H&IPONo=7218&startdt=05%2F08%2F2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4074&type=REITS&idtype=2&status=H&IPONo=7218&startdt=05%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-REITs-Live-BSE-Bid-Details">
+                      <td height="30" align="center" class="TTRow"> 25 </td>
+                      <td class="TTRow_left"> REITs Live-- BSE Bid Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4074&type=REITS&idtype=2&status=H&IPONo=7218&startdt=05%2F08%2F2025">
+                          https://beta.bseindia.com/markets/publicIssues/DisplayIPO?id=4074&type=REITS&idtype=2&status=H&IPONo=7218&startdt=05%2F08%2F2025
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="tab5min" class="container-fluid tab-pane fade">
+
+          <div class="row pt-3">
+
+            <div class="col-lg-3 tab">
+              <button class="tablinks2 table-active active" onclick="openCity2(event, 'Equity')">Equity</button>
+              <button class="tablinks2" onclick="openCity2(event, 'Derivatives')">Derivatives</button>
+              <button class="tablinks2" onclick="openCity2(event, 'Currency')">Currency</button>
+              <button class="tablinks2" onclick="openCity2(event, 'Commodity')">Commodity</button>
+              <button class="tablinks2" onclick="openCity2(event, 'IRD')">IRD</button>
+              <button class="tablinks2" onclick="openCity2(event, 'EGR')">EGR</button>
+            </div>
+
+            <div id="Equity" class="tabcontent2 col-lg-9">
+              <h3>Equity</h3>
+              <div class="largetable pt-4 pb-4">
+                <table class="table-bordered table table-striped table-hover resizable-font mb-0">
+
+                  <thead>
+                    <tr>
+                      <th height="30" class="text-center">Sr. No.</th>
+                      <th height="30" class="text-center">Check List</th>
+                      <th height="30" class="text-center">URL</th>
+                      <th height="30" class="text-center">Last Updated Time</th>
+                      <th height="30" class="text-center">PJT</th>
+                      <th height="30" class="text-center">HYD</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="row-SPOs-Cancelled-Orders">
+                      <td height="30" align="center" class="TTRow"> 1 </td>
+                      <td class="TTRow_left"> SPOs Cancelled Orders </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/Equity/SPOScancelledorder">
+                          https://beta.bseindia.com/markets/Equity/SPOScancelledorder </a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Value-at-Risk-VaR-Margin-Extreme-Loss-Margin-ELM-BOD">
+                      <td height="30" align="center" class="TTRow"> 2 </td>
+                      <td class="TTRow_left"> Value at Risk (VaR) Margin & Extreme Loss Margin
+                        (ELM)- BOD </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/equity/EQReports/margin">
+                          https://beta.bseindia.com/markets/equity/EQReports/margin </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Value-at-Risk-VaR-Margin-Extreme-Loss-Margin-ELM-Session-1">
+                      <td height="30" align="center" class="TTRow"> 3 </td>
+                      <td class="TTRow_left"> Value at Risk (VaR) Margin & Extreme Loss Margin
+                        (ELM)- Session 1 </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/equity/EQReports/margin">
+                          https://beta.bseindia.com/markets/equity/EQReports/margin </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Value-at-Risk-VaR-Margin-Extreme-Loss-Margin-ELM-Session-2">
+                      <td height="30" align="center" class="TTRow"> 4 </td>
+                      <td class="TTRow_left"> Value at Risk (VaR) Margin & Extreme Loss Margin
+                        (ELM)- Session 2 </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/equity/EQReports/margin">
+                          https://beta.bseindia.com/markets/equity/EQReports/margin </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Value-at-Risk-VaR-Margin-Extreme-Loss-Margin-ELM-Session-3">
+                      <td height="30" align="center" class="TTRow"> 5 </td>
+                      <td class="TTRow_left"> Value at Risk (VaR) Margin & Extreme Loss Margin
+                        (ELM)- Session 3 </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/equity/EQReports/margin">
+                          https://beta.bseindia.com/markets/equity/EQReports/margin </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Value-at-Risk-VaR-Margin-Extreme-Loss-Margin-ELM-Session-4">
+                      <td height="30" align="center" class="TTRow"> 6 </td>
+                      <td class="TTRow_left"> Value at Risk (VaR) Margin & Extreme Loss Margin
+                        (ELM)- Session 4 </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/equity/EQReports/margin">
+                          https://beta.bseindia.com/markets/equity/EQReports/margin </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Value-at-Risk-VaR-Margin-Extreme-Loss-Margin-ELM-Session-5">
+                      <td height="30" align="center" class="TTRow"> 7 </td>
+                      <td class="TTRow_left"> Value at Risk (VaR) Margin & Extreme Loss Margin
+                        (ELM)- Session 5 </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/equity/EQReports/margin	">
+                          https://beta.bseindia.com/markets/equity/EQReports/margin </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Value-at-Risk-VaR-Margin-Extreme-Loss-Margin-ELM-Final">
+                      <td height="30" align="center" class="TTRow"> 8 </td>
+                      <td class="TTRow_left"> Value at Risk (VaR) Margin & Extreme Loss Margin
+                        (ELM)- Final </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/equity/EQReports/margin">
+                          https://beta.bseindia.com/markets/equity/EQReports/margin </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Bhav-Copy-Equity-UDiFF">
+                      <td height="30" align="center" class="TTRow"> 9 </td>
+                      <td class="TTRow_left"> Bhav Copy Equity (UDiFF) </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/MarketInfo/BhavCopy">
+                          https://beta.bseindia.com/markets/MarketInfo/BhavCopy </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Bhav-Copy-Equity-T-0-with-ISIN">
+                      <td height="30" align="center" class="TTRow"> 10 </td>
+                      <td class="TTRow_left"> Bhav Copy Equity T+0 with ISIN </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/MarketInfo/BhavCopy">
+                          https://beta.bseindia.com/markets/MarketInfo/BhavCopy </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Bhav-Copy-Equity-T-0-Standardized-Format">
+                      <td height="30" align="center" class="TTRow"> 11 </td>
+                      <td class="TTRow_left"> Bhav Copy Equity T+0 (Standardized Format) </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/MarketInfo/BhavCopy">
+                          https://beta.bseindia.com/markets/MarketInfo/BhavCopy </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Bhav-Copy-Equity-Derivatives-Market-Summary">
+                      <td height="30" align="center" class="TTRow"> 12 </td>
+                      <td class="TTRow_left"> Bhav Copy Equity Derivatives Market Summary </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/MarketInfo/BhavCopy">
+                          https://beta.bseindia.com/markets/MarketInfo/BhavCopy </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Bhav-Copy-Equity-Derivatives-UDiFF">
+                      <td height="30" align="center" class="TTRow"> 13 </td>
+                      <td class="TTRow_left"> Bhav Copy Equity Derivatives (UDiFF) </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/MarketInfo/BhavCopy">
+                          https://beta.bseindia.com/markets/MarketInfo/BhavCopy </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Bhav-Copy-Currency-Derivatives-IRD-Market-Summary">
+                      <td height="30" align="center" class="TTRow"> 14 </td>
+                      <td class="TTRow_left"> Bhav Copy Currency Derivatives /IRD Market Summary
+                      </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/MarketInfo/BhavCopy">
+                          https://beta.bseindia.com/markets/MarketInfo/BhavCopy </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Bhav-Copy-Currency-Derivatives-UDiFF">
+                      <td height="30" align="center" class="TTRow"> 15 </td>
+                      <td class="TTRow_left"> Bhav Copy Currency Derivatives (UDiFF) </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/MarketInfo/BhavCopy">
+                          https://beta.bseindia.com/markets/MarketInfo/BhavCopy </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Bhav-Copy-Debt">
+                      <td height="30" align="center" class="TTRow"> 16 </td>
+                      <td class="TTRow_left"> Bhav Copy Debt </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/MarketInfo/BhavCopy">
+                          https://beta.bseindia.com/markets/MarketInfo/BhavCopy </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Bhav-Copy-SLB">
+                      <td height="30" align="center" class="TTRow"> 17 </td>
+                      <td class="TTRow_left"> Bhav Copy SLB </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/MarketInfo/BhavCopy">
+                          https://beta.bseindia.com/markets/MarketInfo/BhavCopy </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Bhav-Copy-SLB-New">
+                      <td height="30" align="center" class="TTRow"> 18 </td>
+                      <td class="TTRow_left"> Bhav Copy SLB New </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/MarketInfo/BhavCopy">
+                          https://beta.bseindia.com/markets/MarketInfo/BhavCopy </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Bhav-Copy-Debt-Clean-Price">
+                      <td height="30" align="center" class="TTRow"> 19 </td>
+                      <td class="TTRow_left"> Bhav Copy Debt Clean Price </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/MarketInfo/BhavCopy">
+                          https://beta.bseindia.com/markets/MarketInfo/BhavCopy </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Bhav-Copy-Commodity-Derivatives-UDiFF">
+                      <td height="30" align="center" class="TTRow"> 20 </td>
+                      <td class="TTRow_left"> Bhav Copy Commodity Derivatives (UDiFF) </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/MarketInfo/BhavCopy">
+                          https://beta.bseindia.com/markets/MarketInfo/BhavCopy </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Bhav-Copy-EGR">
+                      <td height="30" align="center" class="TTRow"> 21 </td>
+                      <td class="TTRow_left"> Bhav Copy EGR </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/MarketInfo/BhavCopy">
+                          https://beta.bseindia.com/markets/MarketInfo/BhavCopy </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Bhav-Copy-Index-Summary-File">
+                      <td height="30" align="center" class="TTRow"> 22 </td>
+                      <td class="TTRow_left"> Bhav Copy Index Summary File </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/MarketInfo/BhavCopy">
+                          https://beta.bseindia.com/markets/MarketInfo/BhavCopy </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Top-100-Companies-by-Market-Capitalization">
+                      <td height="30" align="center" class="TTRow"> 23 </td>
+                      <td class="TTRow_left"> Top 100 Companies by Market Capitalization </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/equity/EQReports/TopMarketCapitalization">
+                          https://beta.bseindia.com/markets/equity/EQReports/TopMarketCapitalization
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Investor-Categorywise-Turnover">
+                      <td height="30" align="center" class="TTRow"> 24 </td>
+                      <td class="TTRow_left"> Investor Categorywise Turnover </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/equity/EQReports/categorywise_turnover">
+                          https://beta.bseindia.com/markets/equity/EQReports/categorywise_turnover
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Security-Wise-Gross-Deliverables-Position-of-BSE">
+                      <td height="30" align="center" class="TTRow"> 25 </td>
+                      <td class="TTRow_left"> Security Wise Gross Deliverables Position of BSE
+                      </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/equity/EQReports/GrossShortPos?flag=0	">
+                          https://beta.bseindia.com/markets/equity/EQReports/GrossShortPos?flag=0
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Security-Wise-Gross-Deliverables-Position-of-BSE">
+                      <td height="30" align="center" class="TTRow"> 26 </td>
+                      <td class="TTRow_left"> Security Wise Gross Deliverables Position of BSE
+                      </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/equity/EQReports/GrossShortPos?flag=0">
+                          https://beta.bseindia.com/markets/equity/EQReports/GrossShortPos?flag=0
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Margin-Trading">
+                      <td height="30" align="center" class="TTRow"> 27 </td>
+                      <td class="TTRow_left"> Margin Trading </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/equity/EQReports/margin_trad">
+                          https://beta.bseindia.com/markets/equity/EQReports/margin_trad </a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Trading-Highlights">
+                      <td height="30" align="center" class="TTRow"> 28 </td>
+                      <td class="TTRow_left"> Trading Highlights </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/equity/EQReports/tradhigh">
+                          https://beta.bseindia.com/markets/equity/EQReports/tradhigh </a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-All-India-Market-Capitalization">
+                      <td height="30" align="center" class="TTRow"> 29 </td>
+                      <td class="TTRow_left"> All India Market Capitalization </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/equity/EQReports/allindiamktcap">
+                          https://beta.bseindia.com/markets/equity/EQReports/allindiamktcap
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Market-Capitalisation-of-Securities-available-for-Trading-at-BSE">
+                      <td height="30" align="center" class="TTRow"> 30 </td>
+                      <td class="TTRow_left"> Market Capitalisation of Securities available for
+                        Trading at BSE </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Equity/EQReports/MarketCapitalisation">
+                          https://beta.bseindia.com/markets/Equity/EQReports/MarketCapitalisation
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Equity-Volatility-Value">
+                      <td height="30" align="center" class="TTRow"> 31 </td>
+                      <td class="TTRow_left"> Equity Volatility Value </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Equity/EQReports/Volatilityvalue">
+                          https://beta.bseindia.com/markets/Equity/EQReports/Volatilityvalue
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="Derivatives" class="tabcontent2 col-lg-9" style="display: none !important;">
+              <h3>Derivatives</h3>
+              <div class="largetable pt-4 pb-4">
+                <table class="table-bordered table table-striped table-hover resizable-font mb-0">
+                  <thead>
+                    <tr>
+                      <th height="30" class="text-center">Sr. No.</th>
+                      <th height="30" class="text-center">Check List</th>
+                      <th height="30" class="text-center">URL</th>
+                      <th height="30" class="text-center">Last Updated Time</th>
+                      <th height="30" class="text-center">PJT</th>
+                      <th height="30" class="text-center">HYD</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="row-Risk-Parameter-Files-Beginning-of-the-Day">
+                      <td height="30" align="center" class="TTRow"> 1 </td>
+                      <td class="TTRow_left"> Risk Parameter Files- Beginning of the Day</td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Derivatives/DeriReports/Riskparameternew">
+                          https://beta.bseindia.com/markets/Derivatives/DeriReports/Riskparameternew</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Intra-Day-01">
+                      <td height="30" align="center" class="TTRow"> 2 </td>
+                      <td class="TTRow_left"> Risk Parameter Files- Intra-Day 01 </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Derivatives/DeriReports/Riskparameternew">
+                          https://beta.bseindia.com/markets/Derivatives/DeriReports/Riskparameternew
+                        </a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Intra-Day-02">
+                      <td height="30" align="center" class="TTRow"> 3 </td>
+                      <td class="TTRow_left"> Risk Parameter Files- Intra-Day 02 </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Derivatives/DeriReports/Riskparameternew">
+                          https://beta.bseindia.com/markets/Derivatives/DeriReports/Riskparameternew
+                        </a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+
+                    <tr id="row-Risk-Parameter-Files-Intra-Day-03">
+                      <td height="30" align="center" class="TTRow"> 5 </td>
+                      <td class="TTRow_left">Risk Parameter Files- Intra-Day 03</td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Derivatives/DeriReports/Riskparameternew">
+                          https://beta.bseindia.com/markets/Derivatives/DeriReports/Riskparameternew</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Intra-Day-04">
+                      <td height="30" align="center" class="TTRow"> 6 </td>
+                      <td class="TTRow_left"> Risk Parameter Files- Intra-Day 04 </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Derivatives/DeriReports/Riskparameternew">
+                          https://beta.bseindia.com/markets/Derivatives/DeriReports/Riskparameternew
+                        </a></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Final">
+                      <td height="30" align="center" class="TTRow"> 7 </td>
+                      <td class="TTRow_left"> Risk Parameter Files- Final </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Derivatives/DeriReports/Riskparameternew">
+                          https://beta.bseindia.com/markets/Derivatives/DeriReports/Riskparameternew
+                        </a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Investor-Categorywise-Turnover">
+                      <td height="30" align="center" class="TTRow"> 8 </td>
+                      <td class="TTRow_left"> Investor Categorywise Turnover </td>
+                      <td class="TTRow_left"><a
+                          href="http://beta.bseindia.com/markets/Derivatives/DeriReports/InvestorCategorywiseTurnover">
+                          http://beta.bseindia.com/markets/Derivatives/DeriReports/InvestorCategorywiseTurnover
+                        </a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-FII-FPI-Trade-Summary">
+                      <td height="30" align="center" class="TTRow"> 9 </td>
+                      <td class="TTRow_left"> FII / FPI Trade Summary </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Derivatives/DeriReports/FIISummaryx">
+                          https://beta.bseindia.com/markets/Derivatives/DeriReports/FIISummary
+                        </a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Market-Wide-Position-Limit-BSE-open-interest">
+                      <td height="30" align="center" class="TTRow"> 10 </td>
+                      <td class="TTRow_left"> Market Wide Position Limit- BSE open interest </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/Derivatives/DeriReports/MWPL">
+                          https://beta.bseindia.com/markets/Derivatives/DeriReports/MWPL </a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Market-Wide-Position-Limit-Combined-open-interest">
+                      <td height="30" align="center" class="TTRow"> 11 </td>
+                      <td class="TTRow_left"> Market Wide Position Limit- Combined open interest
+                      </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/Derivatives/DeriReports/MWPL">
+                          https://beta.bseindia.com/markets/Derivatives/DeriReports/MWPL</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Market-Wide-Position-Limit-Ban-Securities">
+                      <td height="30" align="center" class="TTRow"> 12 </td>
+                      <td class="TTRow_left"> Market Wide Position Limit- Ban Securities </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/Derivatives/DeriReports/MWPL">
+                          https://beta.bseindia.com/markets/Derivatives/DeriReports/MWPL </a>
+                      </td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Participant-wise-Trading-Volume-Open-Interest-Data">
+                      <td height="30" align="center" class="TTRow"> 13 </td>
+                      <td class="TTRow_left"> Participant wise Trading Volume/Open Interest Data
+                      </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Derivatives/DeriReports/DeriMarketDisclosures_pg">
+                          https://beta.bseindia.com/markets/Derivatives/DeriReports/DeriMarketDisclosures_pg
+                        </a></td>
+                      <td class="TTRow_left"></td>
+
+                      <td class="TTRow_left">&nbsp;</td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Volume-and-Turnover-Data-of-Top-10-Clearing-Members">
+                      <td height="30" align="center" class="TTRow"> 14 </td>
+                      <td class="TTRow_left"> Volume and Turnover Data of Top 10 Clearing Members
+                      </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Derivatives/DeriReports/DeriClearingMember_pg">
+                          https://beta.bseindia.com/markets/Derivatives/DeriReports/DeriClearingMember_pg
+                        </a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Options-Implied-Volatility">
+                      <td height="30" align="center" class="TTRow"> 15 </td>
+                      <td class="TTRow_left"> Options Implied Volatility </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Derivatives/DeriReports/Impliedvolatility">
+                          https://beta.bseindia.com/markets/Derivatives/DeriReports/Impliedvolatility
+                        </a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+
+
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="Currency" class="tabcontent2 col-lg-9" style="display: none !important;">
+              <h3>Currency</h3>
+              <div class="largetable pt-4 pb-4">
+                <table class="table-bordered table table-striped table-hover resizable-font mb-0">
+                  <thead>
+                    <tr>
+                      <th height="30" class="text-center">Sr. No.</th>
+                      <th height="30" class="text-center">Check List</th>
+                      <th height="30" class="text-center">URL</th>
+                      <th height="30" class="text-center">Last Updated Time</th>
+                      <th height="30" class="text-center">PJT</th>
+                      <th height="30" class="text-center">HYD</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="row-Risk-Parameter-Files-Beginning-of-the-Day">
+                      <td height="30" align="center" class="TTRow">1 </td>
+                      <td class="TTRow_left">Risk Parameter Files- Beginning of the Day </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/CurrRiskparameter	">
+                          https://beta.bseindia.com/markets/currencyDerivatives/CurrRiskparameter
+                        </a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Intra-Day-01">
+                      <td height="30" align="center" class="TTRow">2 </td>
+                      <td class="TTRow_left">Risk Parameter Files- Intra-Day 01 </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/CurrRiskparameter	">
+                          https://beta.bseindia.com/markets/currencyDerivatives/CurrRiskparameter
+                        </a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Intra-Day-02">
+                      <td height="30" align="center" class="TTRow">3 </td>
+                      <td class="TTRow_left">Risk Parameter Files- Intra-Day 02 </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/CurrRiskparameter">
+                          https://beta.bseindia.com/markets/currencyDerivatives/CurrRiskparameter
+                        </a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Intra-Day-03">
+                      <td height="30" align="center" class="TTRow">4 </td>
+                      <td class="TTRow_left">Risk Parameter Files- Intra-Day 03 </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/CurrRiskparameter">
+                          https://beta.bseindia.com/markets/currencyDerivatives/CurrRiskparameter
+                        </a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Intra-Day-04">
+                      <td height="30" align="center" class="TTRow">5 </td>
+                      <td class="TTRow_left">Risk Parameter Files- Intra-Day 04 </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/CurrRiskparameter">
+                          https://beta.bseindia.com/markets/currencyDerivatives/CurrRiskparameter
+                        </a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Intra-Day-05">
+                      <td height="30" align="center" class="TTRow">6 </td>
+                      <td class="TTRow_left">Risk Parameter Files- Intra-Day 05 </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/CurrRiskparameter">
+                          https://beta.bseindia.com/markets/currencyDerivatives/CurrRiskparameter
+                        </a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Intra-Day-06">
+                      <td height="30" align="center" class="TTRow">7 </td>
+                      <td class="TTRow_left">Risk Parameter Files- Intra-Day 06 </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/CurrRiskparameter">
+                          https://beta.bseindia.com/markets/currencyDerivatives/CurrRiskparameter
+                        </a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Final">
+                      <td height="30" align="center" class="TTRow">8 </td>
+                      <td class="TTRow_left">Risk Parameter Files- Final </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/CurrRiskparameter">
+                          https://beta.bseindia.com/markets/currencyDerivatives/CurrRiskparameter
+                        </a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                    </tr>
+                    <tr id="row-Daily-client-wise-OI-Limits">
+                      <td height="30" align="center" class="TTRow">9 </td>
+                      <td class="TTRow_left">Daily client wise OI Limits </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/DailyLimit?flag=0">
+                          https://beta.bseindia.com/markets/currencyDerivatives/DailyLimit?flag=0
+                        </a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                    </tr>
+                    <tr id="row-Daily-Trading-member-wise-OI-Limits">
+                      <td height="30" align="center" class="TTRow">10 </td>
+                      <td class="TTRow_left">Daily Trading member wise OI Limits </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/DailyLimit?flag=1">
+                          https://beta.bseindia.com/markets/currencyDerivatives/DailyLimit?flag=1
+                        </a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                    </tr>
+                    <tr id="row-Daily-Proprietary-Position-Limits">
+                      <td height="30" align="center" class="TTRow">11 </td>
+                      <td class="TTRow_left">Daily Proprietary Position Limits </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/daily_proprietary">
+                          https://beta.bseindia.com/markets/currencyDerivatives/daily_proprietary
+                        </a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                    </tr>
+
+
+
+                  </tbody>
+
+
+
+                </table>
+              </div>
+            </div>
+
+            <div id="Commodity" class="tabcontent2 col-lg-9" style="display: none !important;">
+              <h3>Commodity</h3>
+              <div class="largetable pt-4 pb-4">
+                <table class="table-bordered table table-striped table-hover resizable-font mb-0">
+                  <thead>
+                    <tr>
+                      <th height="30" class="text-center">Sr. No.</th>
+                      <th height="30" class="text-center">Check List</th>
+                      <th height="30" class="text-center">URL</th>
+                      <th height="30" class="text-center">Last Updated Time</th>
+                      <th height="30" class="text-center">PJT</th>
+                      <th height="30" class="text-center">HYD</th>
+
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="row-Spot-Prices">
+                      <td height="30" align="center" class="TTRow"> 1 </td>
+                      <td class="TTRow_left"> Spot Prices </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/Commodity/PolledSpotPrice">
+                          https://beta.bseindia.com/markets/Commodity/PolledSpotPrice </a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Daily-Client-wise-OI-Limits">
+                      <td height="30" align="center" class="TTRow"> 2 </td>
+                      <td class="TTRow_left"> Daily Client wise OI Limits </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Commodity/DailyLimitCommn_New?Flag=0">
+                          https://beta.bseindia.com/markets/Commodity/DailyLimitCommn_New?Flag=0
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Daily-Trading-Member-wise-OI-Limits">
+                      <td height="30" align="center" class="TTRow"> 3 </td>
+                      <td class="TTRow_left"> Daily Trading Member wise OI Limits </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Commodity/DailyLimitCommn_New?Flag=1">
+                          https://beta.bseindia.com/markets/Commodity/DailyLimitCommn_New?Flag=1
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Commodity-wise-Open-Interest">
+                      <td height="30" align="center" class="TTRow"> 4 </td>
+                      <td class="TTRow_left"> Commodity wise Open Interest </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/commodity/commodity-open-interest/en-us">
+                          https://beta.bseindia.com/markets/commodity/commodity-open-interest/en-us
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Pro-Cli-Algo-Trade-Details">
+                      <td height="30" align="center" class="TTRow"> 5 </td>
+                      <td class="TTRow_left"> Pro/Cli/Algo Trade Details </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Commodity/Pro_Cli_Algo_Tradedetails">
+                          https://beta.bseindia.com/markets/Commodity/Pro_Cli_Algo_Tradedetails
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Disclosure-of-Category-wise-OI-at-Commodity-Level">
+                      <td height="30" align="center" class="TTRow"> 6 </td>
+                      <td class="TTRow_left"> Disclosure of Category-wise OI at Commodity Level
+                      </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Commodity/Category_OpenInterest/en">
+                          https://beta.bseindia.com/markets/Commodity/Category_OpenInterest/en
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Top-participants-members-at-commodity-level">
+                      <td height="30" align="center" class="TTRow"> 7 </td>
+                      <td class="TTRow_left"> Top participants/members at commodity level </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/Commodity/TopParticipant">
+                          https://beta.bseindia.com/markets/Commodity/TopParticipant </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Beginning-of-the-Day">
+                      <td height="30" align="center" class="TTRow"> 8 </td>
+                      <td class="TTRow_left"> Risk Parameter Files- Beginning of the Day </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en">
+                          https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Intra-Day-01">
+                      <td height="30" align="center" class="TTRow"> 9 </td>
+                      <td class="TTRow_left"> Risk Parameter Files- Intra-Day 01 </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en">
+                          https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Intra-Day-02">
+                      <td height="30" align="center" class="TTRow"> 10 </td>
+                      <td class="TTRow_left"> Risk Parameter Files- Intra-Day 02 </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en">
+                          https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Intra-Day-03">
+                      <td height="30" align="center" class="TTRow"> 11 </td>
+                      <td class="TTRow_left"> Risk Parameter Files- Intra-Day 03 </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en">
+                          https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Intra-Day-04">
+                      <td height="30" align="center" class="TTRow"> 12 </td>
+                      <td class="TTRow_left"> Risk Parameter Files- Intra-Day 04 </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en">
+                          https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Intra-Day-05">
+                      <td height="30" align="center" class="TTRow"> 13 </td>
+                      <td class="TTRow_left"> Risk Parameter Files- Intra-Day 05 </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en">
+                          https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Intra-Day-06">
+                      <td height="30" align="center" class="TTRow"> 14 </td>
+                      <td class="TTRow_left"> Risk Parameter Files- Intra-Day 06 </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en">
+                          https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Intra-Day-07">
+                      <td height="30" align="center" class="TTRow"> 15 </td>
+                      <td class="TTRow_left"> Risk Parameter Files-- Intra-Day 07 </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en">
+                          https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Intra-Day-08">
+                      <td height="30" align="center" class="TTRow"> 16 </td>
+                      <td class="TTRow_left"> Risk Parameter Files- - Intra-Day 08 </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en">
+                          https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Risk-Parameter-Files-Final">
+                      <td height="30" align="center" class="TTRow"> 17 </td>
+                      <td class="TTRow_left"> Risk Parameter Files- Final </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en">
+                          https://beta.bseindia.com/markets/currencyDerivatives/CommodityRiskParamater/en
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Spot-Prices">
+                      <td height="30" align="center" class="TTRow"> 18 </td>
+                      <td class="TTRow_left"> Spot Prices </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/Commodity/PolledSpotPrice">
+                          https://beta.bseindia.com/markets/Commodity/PolledSpotPrice </a>
+                      </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Daily-Client-wise-OI-Limits">
+                      <td height="30" align="center" class="TTRow"> 19 </td>
+                      <td class="TTRow_left"> Daily Client wise OI Limits </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/Commodity/DailyLimitCommn_New?Flag=0">
+                          https://beta.bseindia.com/markets/Commodity/DailyLimitCommn_New?Flag=0
+                        </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+
+
+
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="IRD" class="tabcontent2 col-lg-9" style="display: none !important;">
+              <h3>IRD</h3>
+              <div class="largetable pt-4 pb-4">
+                <table class="table-bordered table table-striped table-hover resizable-font mb-0">
+                  <thead>
+                    <tr>
+                      <th height="30" class="text-center">Sr. No.</th>
+                      <th height="30" class="text-center">Check List</th>
+                      <th height="30" class="text-center">URL</th>
+                      <th height="30" class="text-center">Last Updated Time</th>
+                      <th height="30" class="text-center">PJT</th>
+                      <th height="30" class="text-center">HYD</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="row-Daily-position-limits-for-TM-FII-FPI-Category-I-II-MF-Insurance-Companies-Housing-Finance-Compaies-Pension-Funds">
+                      <td height="30" align="center" class="TTRow"> 1 </td>
+                      <td class="TTRow_left"> Daily position limits for TM/FII/FPI (Category I &
+                        II)/MF/Insurance Companies /Housing Finance Compaies/Pension Funds</td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/EGR/EGRVarMargin">
+                          https://beta.bseindia.com/markets/EGR/EGRVarMargin</a></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+                    <tr id="row-Daily-MTM-Settlement-Price">
+                      <td height="30" align="center" class="TTRow"> 2 </td>
+                      <td class="TTRow_left"> Daily MTM Settlement Price </td>
+                      <td class="TTRow_left"><a
+                          href="https://beta.bseindia.com/markets/currencyDerivatives/Ird_Settlement">
+                          https://beta.bseindia.com/markets/currencyDerivatives/Ird_Settlement</a>
+                      </td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left"></td>
+                      <td class="TTRow_left">&nbsp;</td>
+                    </tr>
+
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="EGR" class="tabcontent2 col-lg-9" style="display: none !important;">
+              <h3>EGR</h3>
+              <div class="largetable pt-4 pb-4">
+                <table class="table-bordered table table-striped table-hover resizable-font mb-0">
+                  <thead>
+                    <tr>
+                      <th height="30" class="text-center">Sr. No.</th>
+                      <th height="30" class="text-center">Check List</th>
+                      <th height="30" class="text-center">URL</th>
+                      <th height="30" class="text-center">Last Updated Time</th>
+                      <th height="30" class="text-center">PJT</th>
+                      <th height="30" class="text-center">HYD</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="row-Value-at-Risk-VaR-Margin-Extreme-Loss-Margin-ELM-BOD">
+                      <td height="30" align="center" class="TTRow"> 1 </td>
+                      <td class="TTRow_left"> Value at Risk (VaR) Margin & Extreme Loss Margin
+                        (ELM)- BOD </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/EGR/EGRVarMargin">
+                          https://beta.bseindia.com/markets/EGR/EGRVarMargin </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Value-at-Risk-VaR-Margin-Extreme-Loss-Margin-ELM-Intraday-01">
+                      <td height="30" align="center" class="TTRow"> 2 </td>
+                      <td class="TTRow_left"> Value at Risk (VaR) Margin & Extreme Loss Margin
+                        (ELM)- Intraday 01 </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/EGR/EGRVarMargin">
+                          https://beta.bseindia.com/markets/EGR/EGRVarMargin </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Value-at-Risk-VaR-Margin-Extreme-Loss-Margin-ELM-Intraday-02">
+                      <td height="30" align="center" class="TTRow"> 3 </td>
+                      <td class="TTRow_left"> Value at Risk (VaR) Margin & Extreme Loss Margin
+                        (ELM)- Intraday 02 </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/EGR/EGRVarMargin">
+                          https://beta.bseindia.com/markets/EGR/EGRVarMargin </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Value-at-Risk-VaR-Margin-Extreme-Loss-Margin-ELM-Intraday-03">
+                      <td height="30" align="center" class="TTRow"> 4 </td>
+                      <td class="TTRow_left"> Value at Risk (VaR) Margin & Extreme Loss Margin
+                        (ELM)- Intraday 03 </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/EGR/EGRVarMargin">
+                          https://beta.bseindia.com/markets/EGR/EGRVarMargin </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Value-at-Risk-VaR-Margin-Extreme-Loss-Margin-ELM-Intraday-04">
+                      <td height="30" align="center" class="TTRow"> 5 </td>
+                      <td class="TTRow_left"> Value at Risk (VaR) Margin & Extreme Loss Margin
+                        (ELM)- Intraday 04 </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/EGR/EGRVarMargin">
+                          https://beta.bseindia.com/markets/EGR/EGRVarMargin </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Value-at-Risk-VaR-Margin-Extreme-Loss-Margin-ELM-Intraday-05">
+                      <td height="30" align="center" class="TTRow"> 6 </td>
+                      <td class="TTRow_left"> Value at Risk (VaR) Margin & Extreme Loss Margin
+                        (ELM)- Intraday 05 </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/EGR/EGRVarMargin">
+                          https://beta.bseindia.com/markets/EGR/EGRVarMargin </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Value-at-Risk-VaR-Margin-Extreme-Loss-Margin-ELM-Intraday-06">
+                      <td height="30" align="center" class="TTRow"> 7 </td>
+                      <td class="TTRow_left"> Value at Risk (VaR) Margin & Extreme Loss Margin
+                        (ELM)- Intraday 06 </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/EGR/EGRVarMargin">
+                          https://beta.bseindia.com/markets/EGR/EGRVarMargin </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Value-at-Risk-VaR-Margin-Extreme-Loss-Margin-ELM-Intraday-07">
+                      <td height="30" align="center" class="TTRow"> 8 </td>
+                      <td class="TTRow_left"> Value at Risk (VaR) Margin & Extreme Loss Margin
+                        (ELM)- Intraday 07 </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/EGR/EGRVarMargin">
+                          https://beta.bseindia.com/markets/EGR/EGRVarMargin </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Value-at-Risk-VaR-Margin-Extreme-Loss-Margin-ELM-Intraday-08">
+                      <td height="30" align="center" class="TTRow"> 9 </td>
+                      <td class="TTRow_left"> Value at Risk (VaR) Margin & Extreme Loss Margin
+                        (ELM)- Intraday 08 </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/EGR/EGRVarMargin">
+                          https://beta.bseindia.com/markets/EGR/EGRVarMargin </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+                    <tr id="row-Value-at-Risk-VaR-Margin-Extreme-Loss-Margin-ELM-Final">
+                      <td height="30" align="center" class="TTRow"> 10 </td>
+                      <td class="TTRow_left"> Value at Risk (VaR) Margin & Extreme Loss Margin
+                        (ELM)- Final </td>
+                      <td class="TTRow_left"><a href="https://beta.bseindia.com/markets/EGR/EGRVarMargin">
+                          https://beta.bseindia.com/markets/EGR/EGRVarMargin </a></td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                      <td class="TTRow_left"> </td>
+                    </tr>
+
+
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function openCity1(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent1");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks1");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementsByClassName("defaultOpen").click();
+  </script>
+
+  <script>
+    function openCity2(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent2");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks2");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementsByClassName("defaultOpen").click();
+  </script>
+</body>
+
+</html>
